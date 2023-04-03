@@ -1,0 +1,2 @@
+const isBrowser = typeof window !== 'undefined' && window.hasOwnProperty('Window') && window instanceof window.Window;
+export const subtle = isBrowser ? window.crypto.subtle : (await import('crypto')).webcrypto.subtle;
