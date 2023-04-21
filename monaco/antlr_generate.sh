@@ -1,0 +1,1 @@
+antlr -Dlanguage=JavaScript Datalog.g4 -visitor -o src/gen
