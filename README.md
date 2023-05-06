@@ -1,4 +1,6 @@
-# biscuit-js | Vanilla JavaScript implementation
+# biscuit-js | Vanilla JavaScript implementation(s)
+
+Disclaimer: All this code here is experimental and for learning purposes. Use at your own risk and perils. 
 
 This is a vanilla JavaScript implementation for handling very specific tasks on Biscuit authorization tokens. Mainly, this library supports token attenuation and adding of third-party blocks, signed by browser native Web Crypto API.
 
