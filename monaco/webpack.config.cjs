@@ -6,7 +6,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.ts',
+  entry: './src/demo/index.ts',
   module: {
     rules: [
       {
@@ -73,7 +73,7 @@ module.exports = {
     }),
     new CopyPlugin({
         patterns: [
-            {from: 'src/public', to: ''}
+            {from: 'src/demo/index.html', to: ''}
         ]
     }),
     new webpack.optimize.LimitChunkCountPlugin({
