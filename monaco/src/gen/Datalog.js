@@ -1,84 +1,77 @@
-// Generated from DatalogParser.g4 by ANTLR 4.12.0
+// Generated from Datalog.g4 by ANTLR 4.12.0
 // jshint ignore: start
 import antlr4 from 'antlr4';
-import DatalogParserListener from './DatalogParserListener.js';
-import DatalogParserVisitor from './DatalogParserVisitor.js';
+import DatalogListener from './DatalogListener.js';
+import DatalogVisitor from './DatalogVisitor.js';
 
-const serializedATN = [4,1,44,235,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,
+const serializedATN = [4,1,43,214,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,
 4,2,5,7,5,2,6,7,6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,
-2,13,7,13,2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,1,
-0,5,0,42,8,0,10,0,12,0,45,9,0,1,0,1,0,1,1,1,1,1,1,3,1,52,8,1,1,1,1,1,1,2,
-1,2,1,2,1,2,5,2,60,8,2,10,2,12,2,63,9,2,1,3,1,3,1,3,1,3,1,3,3,3,70,8,3,1,
-4,1,4,1,5,5,5,75,8,5,10,5,12,5,78,9,5,1,6,1,6,1,6,3,6,83,8,6,1,6,1,6,1,7,
-1,7,1,7,1,7,1,7,5,7,92,8,7,10,7,12,7,95,9,7,1,7,1,7,1,7,3,7,100,8,7,1,8,
-1,8,1,8,1,8,1,8,5,8,107,8,8,10,8,12,8,110,9,8,1,8,1,8,1,9,1,9,1,9,1,9,1,
-10,1,10,1,10,1,10,1,10,5,10,123,8,10,10,10,12,10,126,9,10,1,11,1,11,1,11,
-1,11,1,11,5,11,133,8,11,10,11,12,11,136,9,11,1,12,1,12,1,12,5,12,141,8,12,
-10,12,12,12,144,9,12,1,12,3,12,147,8,12,1,13,1,13,3,13,151,8,13,1,14,1,14,
-1,14,1,14,1,14,5,14,158,8,14,10,14,12,14,161,9,14,1,14,1,14,1,15,1,15,1,
-15,1,15,1,15,1,15,1,15,1,15,1,15,3,15,174,8,15,1,15,1,15,1,15,1,15,1,15,
-1,15,1,15,1,15,1,15,1,15,1,15,1,15,1,15,1,15,1,15,1,15,1,15,1,15,5,15,194,
-8,15,10,15,12,15,197,9,15,3,15,199,8,15,1,15,5,15,202,8,15,10,15,12,15,205,
-9,15,1,16,1,16,1,16,1,16,5,16,211,8,16,10,16,12,16,214,9,16,3,16,216,8,16,
-1,16,1,16,1,17,1,17,3,17,222,8,17,1,18,1,18,3,18,226,8,18,1,19,1,19,1,19,
-1,19,1,19,3,19,233,8,19,1,19,0,1,30,20,0,2,4,6,8,10,12,14,16,18,20,22,24,
-26,28,30,32,34,36,38,0,6,1,0,32,33,1,0,35,36,1,0,20,21,1,0,22,23,1,0,24,
-25,1,0,26,30,250,0,43,1,0,0,0,2,51,1,0,0,0,4,55,1,0,0,0,6,69,1,0,0,0,8,71,
-1,0,0,0,10,76,1,0,0,0,12,82,1,0,0,0,14,86,1,0,0,0,16,101,1,0,0,0,18,113,
-1,0,0,0,20,117,1,0,0,0,22,127,1,0,0,0,24,137,1,0,0,0,26,150,1,0,0,0,28,152,
-1,0,0,0,30,173,1,0,0,0,32,206,1,0,0,0,34,221,1,0,0,0,36,225,1,0,0,0,38,232,
-1,0,0,0,40,42,3,2,1,0,41,40,1,0,0,0,42,45,1,0,0,0,43,41,1,0,0,0,43,44,1,
-0,0,0,44,46,1,0,0,0,45,43,1,0,0,0,46,47,5,0,0,1,47,1,1,0,0,0,48,52,3,14,
-7,0,49,52,3,22,11,0,50,52,3,20,10,0,51,48,1,0,0,0,51,49,1,0,0,0,51,50,1,
-0,0,0,52,53,1,0,0,0,53,54,5,10,0,0,54,3,1,0,0,0,55,56,5,8,0,0,56,61,3,6,
-3,0,57,58,5,9,0,0,58,60,3,6,3,0,59,57,1,0,0,0,60,63,1,0,0,0,61,59,1,0,0,
-0,61,62,1,0,0,0,62,5,1,0,0,0,63,61,1,0,0,0,64,70,5,15,0,0,65,70,5,16,0,0,
-66,67,3,8,4,0,67,68,5,5,0,0,68,70,1,0,0,0,69,64,1,0,0,0,69,65,1,0,0,0,69,
-66,1,0,0,0,70,7,1,0,0,0,71,72,5,17,0,0,72,9,1,0,0,0,73,75,3,12,6,0,74,73,
-1,0,0,0,75,78,1,0,0,0,76,74,1,0,0,0,76,77,1,0,0,0,77,11,1,0,0,0,78,76,1,
-0,0,0,79,83,3,20,10,0,80,83,3,16,8,0,81,83,3,14,7,0,82,79,1,0,0,0,82,80,
-1,0,0,0,82,81,1,0,0,0,83,84,1,0,0,0,84,85,5,10,0,0,85,13,1,0,0,0,86,87,5,
-42,0,0,87,88,5,11,0,0,88,93,3,34,17,0,89,90,5,9,0,0,90,92,3,34,17,0,91,89,
-1,0,0,0,92,95,1,0,0,0,93,91,1,0,0,0,93,94,1,0,0,0,94,96,1,0,0,0,95,93,1,
-0,0,0,96,99,5,12,0,0,97,98,5,18,0,0,98,100,3,24,12,0,99,97,1,0,0,0,99,100,
-1,0,0,0,100,15,1,0,0,0,101,102,5,42,0,0,102,103,5,11,0,0,103,108,3,36,18,
-0,104,105,5,9,0,0,105,107,3,36,18,0,106,104,1,0,0,0,107,110,1,0,0,0,108,
-106,1,0,0,0,108,109,1,0,0,0,109,111,1,0,0,0,110,108,1,0,0,0,111,112,5,12,
-0,0,112,17,1,0,0,0,113,114,3,28,14,0,114,115,5,18,0,0,115,116,3,24,12,0,
-116,19,1,0,0,0,117,118,5,31,0,0,118,119,7,0,0,0,119,124,3,24,12,0,120,121,
-5,34,0,0,121,123,3,24,12,0,122,120,1,0,0,0,123,126,1,0,0,0,124,122,1,0,0,
-0,124,125,1,0,0,0,125,21,1,0,0,0,126,124,1,0,0,0,127,128,7,1,0,0,128,129,
-5,32,0,0,129,134,3,24,12,0,130,131,5,34,0,0,131,133,3,24,12,0,132,130,1,
-0,0,0,133,136,1,0,0,0,134,132,1,0,0,0,134,135,1,0,0,0,135,23,1,0,0,0,136,
-134,1,0,0,0,137,142,3,26,13,0,138,139,5,9,0,0,139,141,3,26,13,0,140,138,
-1,0,0,0,141,144,1,0,0,0,142,140,1,0,0,0,142,143,1,0,0,0,143,146,1,0,0,0,
-144,142,1,0,0,0,145,147,3,4,2,0,146,145,1,0,0,0,146,147,1,0,0,0,147,25,1,
-0,0,0,148,151,3,28,14,0,149,151,3,30,15,0,150,148,1,0,0,0,150,149,1,0,0,
-0,151,27,1,0,0,0,152,153,5,42,0,0,153,154,5,11,0,0,154,159,3,34,17,0,155,
-156,5,9,0,0,156,158,3,34,17,0,157,155,1,0,0,0,158,161,1,0,0,0,159,157,1,
-0,0,0,159,160,1,0,0,0,160,162,1,0,0,0,161,159,1,0,0,0,162,163,5,12,0,0,163,
-29,1,0,0,0,164,165,6,15,-1,0,165,166,5,19,0,0,166,174,3,30,15,9,167,168,
-5,11,0,0,168,169,3,30,15,0,169,170,5,12,0,0,170,174,1,0,0,0,171,174,3,36,
-18,0,172,174,5,1,0,0,173,164,1,0,0,0,173,167,1,0,0,0,173,171,1,0,0,0,173,
-172,1,0,0,0,174,203,1,0,0,0,175,176,10,6,0,0,176,177,7,2,0,0,177,202,3,30,
-15,7,178,179,10,5,0,0,179,180,7,3,0,0,180,202,3,30,15,6,181,182,10,4,0,0,
-182,183,7,4,0,0,183,202,3,30,15,5,184,185,10,3,0,0,185,186,7,5,0,0,186,202,
-3,30,15,4,187,188,10,7,0,0,188,189,5,41,0,0,189,198,5,11,0,0,190,195,3,34,
-17,0,191,192,5,9,0,0,192,194,3,34,17,0,193,191,1,0,0,0,194,197,1,0,0,0,195,
-193,1,0,0,0,195,196,1,0,0,0,196,199,1,0,0,0,197,195,1,0,0,0,198,190,1,0,
-0,0,198,199,1,0,0,0,199,200,1,0,0,0,200,202,5,12,0,0,201,175,1,0,0,0,201,
-178,1,0,0,0,201,181,1,0,0,0,201,184,1,0,0,0,201,187,1,0,0,0,202,205,1,0,
-0,0,203,201,1,0,0,0,203,204,1,0,0,0,204,31,1,0,0,0,205,203,1,0,0,0,206,215,
-5,13,0,0,207,212,3,36,18,0,208,209,5,9,0,0,209,211,3,38,19,0,210,208,1,0,
-0,0,211,214,1,0,0,0,212,210,1,0,0,0,212,213,1,0,0,0,213,216,1,0,0,0,214,
-212,1,0,0,0,215,207,1,0,0,0,215,216,1,0,0,0,216,217,1,0,0,0,217,218,5,14,
-0,0,218,33,1,0,0,0,219,222,3,36,18,0,220,222,5,1,0,0,221,219,1,0,0,0,221,
-220,1,0,0,0,222,35,1,0,0,0,223,226,3,38,19,0,224,226,3,32,16,0,225,223,1,
-0,0,0,225,224,1,0,0,0,226,37,1,0,0,0,227,233,5,6,0,0,228,233,5,2,0,0,229,
-233,5,3,0,0,230,233,5,4,0,0,231,233,5,7,0,0,232,227,1,0,0,0,232,228,1,0,
-0,0,232,229,1,0,0,0,232,230,1,0,0,0,232,231,1,0,0,0,233,39,1,0,0,0,25,43,
-51,61,69,76,82,93,99,108,124,134,142,146,150,159,173,195,198,201,203,212,
-215,221,225,232];
+2,13,7,13,2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,1,0,5,0,40,8,
+0,10,0,12,0,43,9,0,1,0,1,0,1,1,1,1,1,1,1,2,1,2,1,2,1,2,5,2,54,8,2,10,2,12,
+2,57,9,2,1,3,1,3,1,3,1,3,1,3,3,3,64,8,3,1,4,1,4,1,5,5,5,69,8,5,10,5,12,5,
+72,9,5,1,6,1,6,1,6,3,6,77,8,6,1,6,1,6,1,7,1,7,1,7,1,7,1,7,5,7,86,8,7,10,
+7,12,7,89,9,7,1,7,1,7,1,8,1,8,1,8,1,8,1,9,1,9,1,9,1,9,1,9,5,9,102,8,9,10,
+9,12,9,105,9,9,1,10,1,10,1,10,1,10,1,10,5,10,112,8,10,10,10,12,10,115,9,
+10,1,11,1,11,1,11,5,11,120,8,11,10,11,12,11,123,9,11,1,11,3,11,126,8,11,
+1,12,1,12,3,12,130,8,12,1,13,1,13,1,13,1,13,1,13,5,13,137,8,13,10,13,12,
+13,140,9,13,1,13,1,13,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,3,14,
+153,8,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,
+1,14,1,14,1,14,1,14,1,14,5,14,173,8,14,10,14,12,14,176,9,14,3,14,178,8,14,
+1,14,5,14,181,8,14,10,14,12,14,184,9,14,1,15,1,15,1,15,1,15,5,15,190,8,15,
+10,15,12,15,193,9,15,3,15,195,8,15,1,15,1,15,1,16,1,16,3,16,201,8,16,1,17,
+1,17,3,17,205,8,17,1,18,1,18,1,18,1,18,1,18,3,18,212,8,18,1,18,0,1,28,19,
+0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,0,6,1,0,32,33,1,0,35,
+36,1,0,20,21,1,0,22,23,1,0,24,25,1,0,26,30,226,0,41,1,0,0,0,2,46,1,0,0,0,
+4,49,1,0,0,0,6,63,1,0,0,0,8,65,1,0,0,0,10,70,1,0,0,0,12,76,1,0,0,0,14,80,
+1,0,0,0,16,92,1,0,0,0,18,96,1,0,0,0,20,106,1,0,0,0,22,116,1,0,0,0,24,129,
+1,0,0,0,26,131,1,0,0,0,28,152,1,0,0,0,30,185,1,0,0,0,32,200,1,0,0,0,34,204,
+1,0,0,0,36,211,1,0,0,0,38,40,3,2,1,0,39,38,1,0,0,0,40,43,1,0,0,0,41,39,1,
+0,0,0,41,42,1,0,0,0,42,44,1,0,0,0,43,41,1,0,0,0,44,45,5,0,0,1,45,1,1,0,0,
+0,46,47,3,14,7,0,47,48,5,10,0,0,48,3,1,0,0,0,49,50,5,8,0,0,50,55,3,6,3,0,
+51,52,5,9,0,0,52,54,3,6,3,0,53,51,1,0,0,0,54,57,1,0,0,0,55,53,1,0,0,0,55,
+56,1,0,0,0,56,5,1,0,0,0,57,55,1,0,0,0,58,64,5,15,0,0,59,64,5,16,0,0,60,61,
+3,8,4,0,61,62,5,5,0,0,62,64,1,0,0,0,63,58,1,0,0,0,63,59,1,0,0,0,63,60,1,
+0,0,0,64,7,1,0,0,0,65,66,5,17,0,0,66,9,1,0,0,0,67,69,3,12,6,0,68,67,1,0,
+0,0,69,72,1,0,0,0,70,68,1,0,0,0,70,71,1,0,0,0,71,11,1,0,0,0,72,70,1,0,0,
+0,73,77,3,18,9,0,74,77,3,14,7,0,75,77,3,16,8,0,76,73,1,0,0,0,76,74,1,0,0,
+0,76,75,1,0,0,0,77,78,1,0,0,0,78,79,5,10,0,0,79,13,1,0,0,0,80,81,5,38,0,
+0,81,82,5,13,0,0,82,87,3,34,17,0,83,84,5,9,0,0,84,86,3,34,17,0,85,83,1,0,
+0,0,86,89,1,0,0,0,87,85,1,0,0,0,87,88,1,0,0,0,88,90,1,0,0,0,89,87,1,0,0,
+0,90,91,5,14,0,0,91,15,1,0,0,0,92,93,3,26,13,0,93,94,5,18,0,0,94,95,3,22,
+11,0,95,17,1,0,0,0,96,97,5,31,0,0,97,98,7,0,0,0,98,103,3,22,11,0,99,100,
+5,34,0,0,100,102,3,22,11,0,101,99,1,0,0,0,102,105,1,0,0,0,103,101,1,0,0,
+0,103,104,1,0,0,0,104,19,1,0,0,0,105,103,1,0,0,0,106,107,7,1,0,0,107,108,
+5,32,0,0,108,113,3,22,11,0,109,110,5,34,0,0,110,112,3,22,11,0,111,109,1,
+0,0,0,112,115,1,0,0,0,113,111,1,0,0,0,113,114,1,0,0,0,114,21,1,0,0,0,115,
+113,1,0,0,0,116,121,3,24,12,0,117,118,5,9,0,0,118,120,3,24,12,0,119,117,
+1,0,0,0,120,123,1,0,0,0,121,119,1,0,0,0,121,122,1,0,0,0,122,125,1,0,0,0,
+123,121,1,0,0,0,124,126,3,4,2,0,125,124,1,0,0,0,125,126,1,0,0,0,126,23,1,
+0,0,0,127,130,3,26,13,0,128,130,3,28,14,0,129,127,1,0,0,0,129,128,1,0,0,
+0,130,25,1,0,0,0,131,132,5,38,0,0,132,133,5,11,0,0,133,138,3,32,16,0,134,
+135,5,9,0,0,135,137,3,32,16,0,136,134,1,0,0,0,137,140,1,0,0,0,138,136,1,
+0,0,0,138,139,1,0,0,0,139,141,1,0,0,0,140,138,1,0,0,0,141,142,5,12,0,0,142,
+27,1,0,0,0,143,144,6,14,-1,0,144,145,5,19,0,0,145,153,3,28,14,9,146,147,
+5,11,0,0,147,148,3,28,14,0,148,149,5,12,0,0,149,153,1,0,0,0,150,153,3,34,
+17,0,151,153,5,1,0,0,152,143,1,0,0,0,152,146,1,0,0,0,152,150,1,0,0,0,152,
+151,1,0,0,0,153,182,1,0,0,0,154,155,10,6,0,0,155,156,7,2,0,0,156,181,3,28,
+14,7,157,158,10,5,0,0,158,159,7,3,0,0,159,181,3,28,14,6,160,161,10,4,0,0,
+161,162,7,4,0,0,162,181,3,28,14,5,163,164,10,3,0,0,164,165,7,5,0,0,165,181,
+3,28,14,4,166,167,10,7,0,0,167,168,5,37,0,0,168,177,5,11,0,0,169,174,3,32,
+16,0,170,171,5,9,0,0,171,173,3,32,16,0,172,170,1,0,0,0,173,176,1,0,0,0,174,
+172,1,0,0,0,174,175,1,0,0,0,175,178,1,0,0,0,176,174,1,0,0,0,177,169,1,0,
+0,0,177,178,1,0,0,0,178,179,1,0,0,0,179,181,5,12,0,0,180,154,1,0,0,0,180,
+157,1,0,0,0,180,160,1,0,0,0,180,163,1,0,0,0,180,166,1,0,0,0,181,184,1,0,
+0,0,182,180,1,0,0,0,182,183,1,0,0,0,183,29,1,0,0,0,184,182,1,0,0,0,185,194,
+5,13,0,0,186,191,3,34,17,0,187,188,5,9,0,0,188,190,3,36,18,0,189,187,1,0,
+0,0,190,193,1,0,0,0,191,189,1,0,0,0,191,192,1,0,0,0,192,195,1,0,0,0,193,
+191,1,0,0,0,194,186,1,0,0,0,194,195,1,0,0,0,195,196,1,0,0,0,196,197,5,14,
+0,0,197,31,1,0,0,0,198,201,3,34,17,0,199,201,5,1,0,0,200,198,1,0,0,0,200,
+199,1,0,0,0,201,33,1,0,0,0,202,205,3,36,18,0,203,205,3,30,15,0,204,202,1,
+0,0,0,204,203,1,0,0,0,205,35,1,0,0,0,206,212,5,6,0,0,207,212,5,2,0,0,208,
+212,5,3,0,0,209,212,5,4,0,0,210,212,5,7,0,0,211,206,1,0,0,0,211,207,1,0,
+0,0,211,208,1,0,0,0,211,209,1,0,0,0,211,210,1,0,0,0,212,37,1,0,0,0,22,41,
+55,63,70,76,87,103,113,121,125,129,138,152,174,177,180,182,191,194,200,204,
+211];
 
 
 const atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -87,16 +80,16 @@ const decisionsToDFA = atn.decisionToState.map( (ds, index) => new antlr4.dfa.DF
 
 const sharedContextCache = new antlr4.atn.PredictionContextCache();
 
-export default class DatalogParser extends antlr4.Parser {
+export default class Datalog extends antlr4.Parser {
 
-    static grammarFileName = "DatalogParser.g4";
+    static grammarFileName = "Datalog.g4";
     static literalNames = [ null, null, null, null, null, null, null, null, 
                             "'trusting'", "','", "';'", "'('", "')'", "'['", 
                             "']'", "'authority'", "'previous'", "'ed25519'", 
                             "'<-'", "'!'", "'*'", "'/'", "'+'", "'-'", "'&&'", 
                             "'||'", "'>'", "'>='", "'<'", "'<='", "'=='", 
                             "'check'", "'if'", "'all'", "'or'", "'allow'", 
-                            "'deny'", null, "'/*'", "'*/'" ];
+                            "'deny'", null, null, null, "'/*'", "'*/'" ];
     static symbolicNames = [ null, "VARIABLE", "STRING", "NUMBER", "BYTES", 
                              "PUBLICKEYBYTES", "BOOLEAN", "DATE", "TRUSTING", 
                              "COMMA", "SEMICOL", "LPARENS", "RPARENS", "LSPARENS", 
@@ -104,27 +97,27 @@ export default class DatalogParser extends antlr4.Parser {
                              "RULEOP", "OP_NOT", "OP_MUL", "OP_DIV", "OP_SUM", 
                              "OP_SUB", "OP_AND", "OP_OR", "OP_G", "OP_GE", 
                              "OP_L", "OP_LE", "OP_EQUAL", "CHECK", "IF", 
-                             "ALL", "OR", "ALLOW", "DENY", "SINGLE_LINE_COMMENT", 
-                             "DELIMITED_COMMENT_START", "DELIMITED_COMMENT_END", 
-                             "DELIMITED_COMMENT", "METHOD_INVOCATION", "NAME", 
-                             "WS", "ANY" ];
+                             "ALL", "OR", "ALLOW", "DENY", "METHOD_INVOCATION", 
+                             "NAME", "SINGLE_LINE_COMMENT", "DELIMITED_COMMENT_START", 
+                             "DELIMITED_COMMENT_END", "DELIMITED_COMMENT", 
+                             "ANY" ];
     static ruleNames = [ "authorizer", "authorizer_element", "origin_clause", 
                          "origin_element", "signature_alg", "block", "block_element", 
-                         "fact_or_rule", "fact", "rule_", "check", "policy", 
-                         "rule_body", "rule_body_element", "predicate", 
-                         "expression", "set", "term", "fact_term", "set_term" ];
+                         "fact", "rule_", "check", "policy", "rule_body", 
+                         "rule_body_element", "predicate", "expression", 
+                         "set", "term", "fact_term", "set_term" ];
 
     constructor(input) {
         super(input);
         this._interp = new antlr4.atn.ParserATNSimulator(this, atn, decisionsToDFA, sharedContextCache);
-        this.ruleNames = DatalogParser.ruleNames;
-        this.literalNames = DatalogParser.literalNames;
-        this.symbolicNames = DatalogParser.symbolicNames;
+        this.ruleNames = Datalog.ruleNames;
+        this.literalNames = Datalog.literalNames;
+        this.symbolicNames = Datalog.symbolicNames;
     }
 
     sempred(localctx, ruleIndex, predIndex) {
     	switch(ruleIndex) {
-    	case 15:
+    	case 14:
     	    		return this.expression_sempred(localctx, predIndex);
         default:
             throw "No predicate with index:" + ruleIndex;
@@ -153,22 +146,22 @@ export default class DatalogParser extends antlr4.Parser {
 
 	authorizer() {
 	    let localctx = new AuthorizerContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 0, DatalogParser.RULE_authorizer);
+	    this.enterRule(localctx, 0, Datalog.RULE_authorizer);
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 43;
+	        this.state = 41;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        while(((((_la - 31)) & ~0x1f) === 0 && ((1 << (_la - 31)) & 2097) !== 0)) {
-	            this.state = 40;
+	        while(_la===38) {
+	            this.state = 38;
 	            this.authorizer_element();
-	            this.state = 45;
+	            this.state = 43;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        }
-	        this.state = 46;
-	        this.match(DatalogParser.EOF);
+	        this.state = 44;
+	        this.match(Datalog.EOF);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
 		        localctx.exception = re;
@@ -187,30 +180,13 @@ export default class DatalogParser extends antlr4.Parser {
 
 	authorizer_element() {
 	    let localctx = new Authorizer_elementContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 2, DatalogParser.RULE_authorizer_element);
+	    this.enterRule(localctx, 2, Datalog.RULE_authorizer_element);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 51;
-	        this._errHandler.sync(this);
-	        switch(this._input.LA(1)) {
-	        case 42:
-	            this.state = 48;
-	            this.fact_or_rule();
-	            break;
-	        case 35:
-	        case 36:
-	            this.state = 49;
-	            this.policy();
-	            break;
-	        case 31:
-	            this.state = 50;
-	            this.check();
-	            break;
-	        default:
-	            throw new antlr4.error.NoViableAltException(this);
-	        }
-	        this.state = 53;
-	        this.match(DatalogParser.SEMICOL);
+	        this.state = 46;
+	        this.fact();
+	        this.state = 47;
+	        this.match(Datalog.SEMICOL);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
 		        localctx.exception = re;
@@ -229,23 +205,23 @@ export default class DatalogParser extends antlr4.Parser {
 
 	origin_clause() {
 	    let localctx = new Origin_clauseContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 4, DatalogParser.RULE_origin_clause);
+	    this.enterRule(localctx, 4, Datalog.RULE_origin_clause);
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 55;
-	        this.match(DatalogParser.TRUSTING);
-	        this.state = 56;
+	        this.state = 49;
+	        this.match(Datalog.TRUSTING);
+	        this.state = 50;
 	        this.origin_element();
-	        this.state = 61;
+	        this.state = 55;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
 	        while(_la===9) {
-	            this.state = 57;
-	            this.match(DatalogParser.COMMA);
-	            this.state = 58;
+	            this.state = 51;
+	            this.match(Datalog.COMMA);
+	            this.state = 52;
 	            this.origin_element();
-	            this.state = 63;
+	            this.state = 57;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        }
@@ -267,30 +243,30 @@ export default class DatalogParser extends antlr4.Parser {
 
 	origin_element() {
 	    let localctx = new Origin_elementContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 6, DatalogParser.RULE_origin_element);
+	    this.enterRule(localctx, 6, Datalog.RULE_origin_element);
 	    try {
-	        this.state = 69;
+	        this.state = 63;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
 	        case 15:
 	            localctx = new OriginElementAuthorityContext(this, localctx);
 	            this.enterOuterAlt(localctx, 1);
-	            this.state = 64;
-	            this.match(DatalogParser.AUTHORITY);
+	            this.state = 58;
+	            this.match(Datalog.AUTHORITY);
 	            break;
 	        case 16:
 	            localctx = new OriginElementPreviousContext(this, localctx);
 	            this.enterOuterAlt(localctx, 2);
-	            this.state = 65;
-	            this.match(DatalogParser.PREVIOUS);
+	            this.state = 59;
+	            this.match(Datalog.PREVIOUS);
 	            break;
 	        case 17:
 	            localctx = new OriginElementPublicKeyContext(this, localctx);
 	            this.enterOuterAlt(localctx, 3);
-	            this.state = 66;
+	            this.state = 60;
 	            this.signature_alg();
-	            this.state = 67;
-	            this.match(DatalogParser.PUBLICKEYBYTES);
+	            this.state = 61;
+	            this.match(Datalog.PUBLICKEYBYTES);
 	            break;
 	        default:
 	            throw new antlr4.error.NoViableAltException(this);
@@ -313,11 +289,11 @@ export default class DatalogParser extends antlr4.Parser {
 
 	signature_alg() {
 	    let localctx = new Signature_algContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 8, DatalogParser.RULE_signature_alg);
+	    this.enterRule(localctx, 8, Datalog.RULE_signature_alg);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 71;
-	        this.match(DatalogParser.ED25519);
+	        this.state = 65;
+	        this.match(Datalog.ED25519);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
 		        localctx.exception = re;
@@ -336,17 +312,17 @@ export default class DatalogParser extends antlr4.Parser {
 
 	block() {
 	    let localctx = new BlockContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 10, DatalogParser.RULE_block);
+	    this.enterRule(localctx, 10, Datalog.RULE_block);
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 76;
+	        this.state = 70;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        while(_la===31 || _la===42) {
-	            this.state = 73;
+	        while(_la===31 || _la===38) {
+	            this.state = 67;
 	            this.block_element();
-	            this.state = 78;
+	            this.state = 72;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        }
@@ -368,83 +344,31 @@ export default class DatalogParser extends antlr4.Parser {
 
 	block_element() {
 	    let localctx = new Block_elementContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 12, DatalogParser.RULE_block_element);
+	    this.enterRule(localctx, 12, Datalog.RULE_block_element);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 82;
+	        this.state = 76;
 	        this._errHandler.sync(this);
-	        var la_ = this._interp.adaptivePredict(this._input,5,this._ctx);
+	        var la_ = this._interp.adaptivePredict(this._input,4,this._ctx);
 	        switch(la_) {
 	        case 1:
-	            this.state = 79;
+	            this.state = 73;
 	            this.check();
 	            break;
 
 	        case 2:
-	            this.state = 80;
+	            this.state = 74;
 	            this.fact();
 	            break;
 
 	        case 3:
-	            this.state = 81;
-	            this.fact_or_rule();
+	            this.state = 75;
+	            this.rule_();
 	            break;
 
 	        }
-	        this.state = 84;
-	        this.match(DatalogParser.SEMICOL);
-	    } catch (re) {
-	    	if(re instanceof antlr4.error.RecognitionException) {
-		        localctx.exception = re;
-		        this._errHandler.reportError(this, re);
-		        this._errHandler.recover(this, re);
-		    } else {
-		    	throw re;
-		    }
-	    } finally {
-	        this.exitRule();
-	    }
-	    return localctx;
-	}
-
-
-
-	fact_or_rule() {
-	    let localctx = new Fact_or_ruleContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 14, DatalogParser.RULE_fact_or_rule);
-	    var _la = 0;
-	    try {
-	        this.enterOuterAlt(localctx, 1);
-	        this.state = 86;
-	        this.match(DatalogParser.NAME);
-	        this.state = 87;
-	        this.match(DatalogParser.LPARENS);
-	        this.state = 88;
-	        this.term();
-	        this.state = 93;
-	        this._errHandler.sync(this);
-	        _la = this._input.LA(1);
-	        while(_la===9) {
-	            this.state = 89;
-	            this.match(DatalogParser.COMMA);
-	            this.state = 90;
-	            this.term();
-	            this.state = 95;
-	            this._errHandler.sync(this);
-	            _la = this._input.LA(1);
-	        }
-	        this.state = 96;
-	        this.match(DatalogParser.RPARENS);
-	        this.state = 99;
-	        this._errHandler.sync(this);
-	        _la = this._input.LA(1);
-	        if(_la===18) {
-	            this.state = 97;
-	            this.match(DatalogParser.RULEOP);
-	            this.state = 98;
-	            this.rule_body();
-	        }
-
+	        this.state = 78;
+	        this.match(Datalog.SEMICOL);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
 		        localctx.exception = re;
@@ -463,30 +387,30 @@ export default class DatalogParser extends antlr4.Parser {
 
 	fact() {
 	    let localctx = new FactContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 16, DatalogParser.RULE_fact);
+	    this.enterRule(localctx, 14, Datalog.RULE_fact);
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 101;
-	        this.match(DatalogParser.NAME);
-	        this.state = 102;
-	        this.match(DatalogParser.LPARENS);
-	        this.state = 103;
+	        this.state = 80;
+	        this.match(Datalog.NAME);
+	        this.state = 81;
+	        this.match(Datalog.LSPARENS);
+	        this.state = 82;
 	        this.fact_term();
-	        this.state = 108;
+	        this.state = 87;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
 	        while(_la===9) {
-	            this.state = 104;
-	            this.match(DatalogParser.COMMA);
-	            this.state = 105;
+	            this.state = 83;
+	            this.match(Datalog.COMMA);
+	            this.state = 84;
 	            this.fact_term();
-	            this.state = 110;
+	            this.state = 89;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        }
-	        this.state = 111;
-	        this.match(DatalogParser.RPARENS);
+	        this.state = 90;
+	        this.match(Datalog.RSPARENS);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
 		        localctx.exception = re;
@@ -505,14 +429,14 @@ export default class DatalogParser extends antlr4.Parser {
 
 	rule_() {
 	    let localctx = new Rule_Context(this, this._ctx, this.state);
-	    this.enterRule(localctx, 18, DatalogParser.RULE_rule_);
+	    this.enterRule(localctx, 16, Datalog.RULE_rule_);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 113;
+	        this.state = 92;
 	        this.predicate();
-	        this.state = 114;
-	        this.match(DatalogParser.RULEOP);
-	        this.state = 115;
+	        this.state = 93;
+	        this.match(Datalog.RULEOP);
+	        this.state = 94;
 	        this.rule_body();
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -532,13 +456,13 @@ export default class DatalogParser extends antlr4.Parser {
 
 	check() {
 	    let localctx = new CheckContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 20, DatalogParser.RULE_check);
+	    this.enterRule(localctx, 18, Datalog.RULE_check);
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 117;
-	        this.match(DatalogParser.CHECK);
-	        this.state = 118;
+	        this.state = 96;
+	        this.match(Datalog.CHECK);
+	        this.state = 97;
 	        localctx.kind = this._input.LT(1);
 	        _la = this._input.LA(1);
 	        if(!(_la===32 || _la===33)) {
@@ -548,17 +472,17 @@ export default class DatalogParser extends antlr4.Parser {
 	        	this._errHandler.reportMatch(this);
 	            this.consume();
 	        }
-	        this.state = 119;
+	        this.state = 98;
 	        this.rule_body();
-	        this.state = 124;
+	        this.state = 103;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
 	        while(_la===34) {
-	            this.state = 120;
-	            this.match(DatalogParser.OR);
-	            this.state = 121;
+	            this.state = 99;
+	            this.match(Datalog.OR);
+	            this.state = 100;
 	            this.rule_body();
-	            this.state = 126;
+	            this.state = 105;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        }
@@ -580,11 +504,11 @@ export default class DatalogParser extends antlr4.Parser {
 
 	policy() {
 	    let localctx = new PolicyContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 22, DatalogParser.RULE_policy);
+	    this.enterRule(localctx, 20, Datalog.RULE_policy);
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 127;
+	        this.state = 106;
 	        localctx.kind = this._input.LT(1);
 	        _la = this._input.LA(1);
 	        if(!(_la===35 || _la===36)) {
@@ -594,19 +518,19 @@ export default class DatalogParser extends antlr4.Parser {
 	        	this._errHandler.reportMatch(this);
 	            this.consume();
 	        }
-	        this.state = 128;
-	        this.match(DatalogParser.IF);
-	        this.state = 129;
+	        this.state = 107;
+	        this.match(Datalog.IF);
+	        this.state = 108;
 	        this.rule_body();
-	        this.state = 134;
+	        this.state = 113;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
 	        while(_la===34) {
-	            this.state = 130;
-	            this.match(DatalogParser.OR);
-	            this.state = 131;
+	            this.state = 109;
+	            this.match(Datalog.OR);
+	            this.state = 110;
 	            this.rule_body();
-	            this.state = 136;
+	            this.state = 115;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        }
@@ -628,29 +552,29 @@ export default class DatalogParser extends antlr4.Parser {
 
 	rule_body() {
 	    let localctx = new Rule_bodyContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 24, DatalogParser.RULE_rule_body);
+	    this.enterRule(localctx, 22, Datalog.RULE_rule_body);
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 137;
+	        this.state = 116;
 	        this.rule_body_element();
-	        this.state = 142;
+	        this.state = 121;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
 	        while(_la===9) {
-	            this.state = 138;
-	            this.match(DatalogParser.COMMA);
-	            this.state = 139;
+	            this.state = 117;
+	            this.match(Datalog.COMMA);
+	            this.state = 118;
 	            this.rule_body_element();
-	            this.state = 144;
+	            this.state = 123;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        }
-	        this.state = 146;
+	        this.state = 125;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
 	        if(_la===8) {
-	            this.state = 145;
+	            this.state = 124;
 	            this.origin_clause();
 	        }
 
@@ -672,14 +596,14 @@ export default class DatalogParser extends antlr4.Parser {
 
 	rule_body_element() {
 	    let localctx = new Rule_body_elementContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 26, DatalogParser.RULE_rule_body_element);
+	    this.enterRule(localctx, 24, Datalog.RULE_rule_body_element);
 	    try {
-	        this.state = 150;
+	        this.state = 129;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
-	        case 42:
+	        case 38:
 	            this.enterOuterAlt(localctx, 1);
-	            this.state = 148;
+	            this.state = 127;
 	            this.predicate();
 	            break;
 	        case 1:
@@ -692,7 +616,7 @@ export default class DatalogParser extends antlr4.Parser {
 	        case 13:
 	        case 19:
 	            this.enterOuterAlt(localctx, 2);
-	            this.state = 149;
+	            this.state = 128;
 	            this.expression(0);
 	            break;
 	        default:
@@ -716,30 +640,30 @@ export default class DatalogParser extends antlr4.Parser {
 
 	predicate() {
 	    let localctx = new PredicateContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 28, DatalogParser.RULE_predicate);
+	    this.enterRule(localctx, 26, Datalog.RULE_predicate);
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 152;
-	        this.match(DatalogParser.NAME);
-	        this.state = 153;
-	        this.match(DatalogParser.LPARENS);
-	        this.state = 154;
+	        this.state = 131;
+	        this.match(Datalog.NAME);
+	        this.state = 132;
+	        this.match(Datalog.LPARENS);
+	        this.state = 133;
 	        this.term();
-	        this.state = 159;
+	        this.state = 138;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
 	        while(_la===9) {
-	            this.state = 155;
-	            this.match(DatalogParser.COMMA);
-	            this.state = 156;
+	            this.state = 134;
+	            this.match(Datalog.COMMA);
+	            this.state = 135;
 	            this.term();
-	            this.state = 161;
+	            this.state = 140;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        }
-	        this.state = 162;
-	        this.match(DatalogParser.RPARENS);
+	        this.state = 141;
+	        this.match(Datalog.RPARENS);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
 		        localctx.exception = re;
@@ -763,12 +687,12 @@ export default class DatalogParser extends antlr4.Parser {
 	    const _parentState = this.state;
 	    let localctx = new ExpressionContext(this, this._ctx, _parentState);
 	    let _prevctx = localctx;
-	    const _startState = 30;
-	    this.enterRecursionRule(localctx, 30, DatalogParser.RULE_expression, _p);
+	    const _startState = 28;
+	    this.enterRecursionRule(localctx, 28, Datalog.RULE_expression, _p);
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 173;
+	        this.state = 152;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
 	        case 19:
@@ -776,21 +700,21 @@ export default class DatalogParser extends antlr4.Parser {
 	            this._ctx = localctx;
 	            _prevctx = localctx;
 
-	            this.state = 165;
-	            this.match(DatalogParser.OP_NOT);
-	            this.state = 166;
+	            this.state = 144;
+	            this.match(Datalog.OP_NOT);
+	            this.state = 145;
 	            this.expression(9);
 	            break;
 	        case 11:
 	            localctx = new ExpressionParenthesesContext(this, localctx);
 	            this._ctx = localctx;
 	            _prevctx = localctx;
-	            this.state = 167;
-	            this.match(DatalogParser.LPARENS);
-	            this.state = 168;
+	            this.state = 146;
+	            this.match(Datalog.LPARENS);
+	            this.state = 147;
 	            this.expression(0);
-	            this.state = 169;
-	            this.match(DatalogParser.RPARENS);
+	            this.state = 148;
+	            this.match(Datalog.RPARENS);
 	            break;
 	        case 2:
 	        case 3:
@@ -801,41 +725,41 @@ export default class DatalogParser extends antlr4.Parser {
 	            localctx = new ExpressionTermContext(this, localctx);
 	            this._ctx = localctx;
 	            _prevctx = localctx;
-	            this.state = 171;
+	            this.state = 150;
 	            this.fact_term();
 	            break;
 	        case 1:
 	            localctx = new ExpressionVariableContext(this, localctx);
 	            this._ctx = localctx;
 	            _prevctx = localctx;
-	            this.state = 172;
-	            this.match(DatalogParser.VARIABLE);
+	            this.state = 151;
+	            this.match(Datalog.VARIABLE);
 	            break;
 	        default:
 	            throw new antlr4.error.NoViableAltException(this);
 	        }
 	        this._ctx.stop = this._input.LT(-1);
-	        this.state = 203;
+	        this.state = 182;
 	        this._errHandler.sync(this);
-	        var _alt = this._interp.adaptivePredict(this._input,19,this._ctx)
+	        var _alt = this._interp.adaptivePredict(this._input,16,this._ctx)
 	        while(_alt!=2 && _alt!=antlr4.atn.ATN.INVALID_ALT_NUMBER) {
 	            if(_alt===1) {
 	                if(this._parseListeners!==null) {
 	                    this.triggerExitRuleEvent();
 	                }
 	                _prevctx = localctx;
-	                this.state = 201;
+	                this.state = 180;
 	                this._errHandler.sync(this);
-	                var la_ = this._interp.adaptivePredict(this._input,18,this._ctx);
+	                var la_ = this._interp.adaptivePredict(this._input,15,this._ctx);
 	                switch(la_) {
 	                case 1:
 	                    localctx = new ExpressionMultContext(this, new ExpressionContext(this, _parentctx, _parentState));
-	                    this.pushNewRecursionContext(localctx, _startState, DatalogParser.RULE_expression);
-	                    this.state = 175;
+	                    this.pushNewRecursionContext(localctx, _startState, Datalog.RULE_expression);
+	                    this.state = 154;
 	                    if (!( this.precpred(this._ctx, 6))) {
 	                        throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 6)");
 	                    }
-	                    this.state = 176;
+	                    this.state = 155;
 	                    localctx.mult = this._input.LT(1);
 	                    _la = this._input.LA(1);
 	                    if(!(_la===20 || _la===21)) {
@@ -845,18 +769,18 @@ export default class DatalogParser extends antlr4.Parser {
 	                    	this._errHandler.reportMatch(this);
 	                        this.consume();
 	                    }
-	                    this.state = 177;
+	                    this.state = 156;
 	                    this.expression(7);
 	                    break;
 
 	                case 2:
 	                    localctx = new ExpressionAddContext(this, new ExpressionContext(this, _parentctx, _parentState));
-	                    this.pushNewRecursionContext(localctx, _startState, DatalogParser.RULE_expression);
-	                    this.state = 178;
+	                    this.pushNewRecursionContext(localctx, _startState, Datalog.RULE_expression);
+	                    this.state = 157;
 	                    if (!( this.precpred(this._ctx, 5))) {
 	                        throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 5)");
 	                    }
-	                    this.state = 179;
+	                    this.state = 158;
 	                    localctx.add = this._input.LT(1);
 	                    _la = this._input.LA(1);
 	                    if(!(_la===22 || _la===23)) {
@@ -866,18 +790,18 @@ export default class DatalogParser extends antlr4.Parser {
 	                    	this._errHandler.reportMatch(this);
 	                        this.consume();
 	                    }
-	                    this.state = 180;
+	                    this.state = 159;
 	                    this.expression(6);
 	                    break;
 
 	                case 3:
 	                    localctx = new ExpressionLogicContext(this, new ExpressionContext(this, _parentctx, _parentState));
-	                    this.pushNewRecursionContext(localctx, _startState, DatalogParser.RULE_expression);
-	                    this.state = 181;
+	                    this.pushNewRecursionContext(localctx, _startState, Datalog.RULE_expression);
+	                    this.state = 160;
 	                    if (!( this.precpred(this._ctx, 4))) {
 	                        throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 4)");
 	                    }
-	                    this.state = 182;
+	                    this.state = 161;
 	                    localctx.logic = this._input.LT(1);
 	                    _la = this._input.LA(1);
 	                    if(!(_la===24 || _la===25)) {
@@ -887,18 +811,18 @@ export default class DatalogParser extends antlr4.Parser {
 	                    	this._errHandler.reportMatch(this);
 	                        this.consume();
 	                    }
-	                    this.state = 183;
+	                    this.state = 162;
 	                    this.expression(5);
 	                    break;
 
 	                case 4:
 	                    localctx = new ExpressionCompContext(this, new ExpressionContext(this, _parentctx, _parentState));
-	                    this.pushNewRecursionContext(localctx, _startState, DatalogParser.RULE_expression);
-	                    this.state = 184;
+	                    this.pushNewRecursionContext(localctx, _startState, Datalog.RULE_expression);
+	                    this.state = 163;
 	                    if (!( this.precpred(this._ctx, 3))) {
 	                        throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 3)");
 	                    }
-	                    this.state = 185;
+	                    this.state = 164;
 	                    localctx.comp = this._input.LT(1);
 	                    _la = this._input.LA(1);
 	                    if(!((((_la) & ~0x1f) === 0 && ((1 << _la) & 2080374784) !== 0))) {
@@ -908,50 +832,50 @@ export default class DatalogParser extends antlr4.Parser {
 	                    	this._errHandler.reportMatch(this);
 	                        this.consume();
 	                    }
-	                    this.state = 186;
+	                    this.state = 165;
 	                    this.expression(4);
 	                    break;
 
 	                case 5:
 	                    localctx = new ExpressionMethodContext(this, new ExpressionContext(this, _parentctx, _parentState));
-	                    this.pushNewRecursionContext(localctx, _startState, DatalogParser.RULE_expression);
-	                    this.state = 187;
+	                    this.pushNewRecursionContext(localctx, _startState, Datalog.RULE_expression);
+	                    this.state = 166;
 	                    if (!( this.precpred(this._ctx, 7))) {
 	                        throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 7)");
 	                    }
-	                    this.state = 188;
-	                    this.match(DatalogParser.METHOD_INVOCATION);
-	                    this.state = 189;
-	                    this.match(DatalogParser.LPARENS);
-	                    this.state = 198;
+	                    this.state = 167;
+	                    this.match(Datalog.METHOD_INVOCATION);
+	                    this.state = 168;
+	                    this.match(Datalog.LPARENS);
+	                    this.state = 177;
 	                    this._errHandler.sync(this);
 	                    _la = this._input.LA(1);
 	                    if((((_la) & ~0x1f) === 0 && ((1 << _la) & 8414) !== 0)) {
-	                        this.state = 190;
+	                        this.state = 169;
 	                        this.term();
-	                        this.state = 195;
+	                        this.state = 174;
 	                        this._errHandler.sync(this);
 	                        _la = this._input.LA(1);
 	                        while(_la===9) {
-	                            this.state = 191;
-	                            this.match(DatalogParser.COMMA);
-	                            this.state = 192;
+	                            this.state = 170;
+	                            this.match(Datalog.COMMA);
+	                            this.state = 171;
 	                            this.term();
-	                            this.state = 197;
+	                            this.state = 176;
 	                            this._errHandler.sync(this);
 	                            _la = this._input.LA(1);
 	                        }
 	                    }
 
-	                    this.state = 200;
-	                    this.match(DatalogParser.RPARENS);
+	                    this.state = 179;
+	                    this.match(Datalog.RPARENS);
 	                    break;
 
 	                } 
 	            }
-	            this.state = 205;
+	            this.state = 184;
 	            this._errHandler.sync(this);
-	            _alt = this._interp.adaptivePredict(this._input,19,this._ctx);
+	            _alt = this._interp.adaptivePredict(this._input,16,this._ctx);
 	        }
 
 	    } catch( error) {
@@ -972,34 +896,34 @@ export default class DatalogParser extends antlr4.Parser {
 
 	set() {
 	    let localctx = new SetContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 32, DatalogParser.RULE_set);
+	    this.enterRule(localctx, 30, Datalog.RULE_set);
 	    var _la = 0;
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 206;
-	        this.match(DatalogParser.LSPARENS);
-	        this.state = 215;
+	        this.state = 185;
+	        this.match(Datalog.LSPARENS);
+	        this.state = 194;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
 	        if((((_la) & ~0x1f) === 0 && ((1 << _la) & 8412) !== 0)) {
-	            this.state = 207;
+	            this.state = 186;
 	            this.fact_term();
-	            this.state = 212;
+	            this.state = 191;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	            while(_la===9) {
-	                this.state = 208;
-	                this.match(DatalogParser.COMMA);
-	                this.state = 209;
+	                this.state = 187;
+	                this.match(Datalog.COMMA);
+	                this.state = 188;
 	                this.set_term();
-	                this.state = 214;
+	                this.state = 193;
 	                this._errHandler.sync(this);
 	                _la = this._input.LA(1);
 	            }
 	        }
 
-	        this.state = 217;
-	        this.match(DatalogParser.RSPARENS);
+	        this.state = 196;
+	        this.match(Datalog.RSPARENS);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
 		        localctx.exception = re;
@@ -1018,9 +942,9 @@ export default class DatalogParser extends antlr4.Parser {
 
 	term() {
 	    let localctx = new TermContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 34, DatalogParser.RULE_term);
+	    this.enterRule(localctx, 32, Datalog.RULE_term);
 	    try {
-	        this.state = 221;
+	        this.state = 200;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
 	        case 2:
@@ -1030,13 +954,13 @@ export default class DatalogParser extends antlr4.Parser {
 	        case 7:
 	        case 13:
 	            this.enterOuterAlt(localctx, 1);
-	            this.state = 219;
+	            this.state = 198;
 	            this.fact_term();
 	            break;
 	        case 1:
 	            this.enterOuterAlt(localctx, 2);
-	            this.state = 220;
-	            this.match(DatalogParser.VARIABLE);
+	            this.state = 199;
+	            this.match(Datalog.VARIABLE);
 	            break;
 	        default:
 	            throw new antlr4.error.NoViableAltException(this);
@@ -1059,9 +983,9 @@ export default class DatalogParser extends antlr4.Parser {
 
 	fact_term() {
 	    let localctx = new Fact_termContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 36, DatalogParser.RULE_fact_term);
+	    this.enterRule(localctx, 34, Datalog.RULE_fact_term);
 	    try {
-	        this.state = 225;
+	        this.state = 204;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
 	        case 2:
@@ -1071,13 +995,13 @@ export default class DatalogParser extends antlr4.Parser {
 	        case 7:
 	            localctx = new SetTermContext(this, localctx);
 	            this.enterOuterAlt(localctx, 1);
-	            this.state = 223;
+	            this.state = 202;
 	            this.set_term();
 	            break;
 	        case 13:
 	            localctx = new SetFactTermContext(this, localctx);
 	            this.enterOuterAlt(localctx, 2);
-	            this.state = 224;
+	            this.state = 203;
 	            this.set();
 	            break;
 	        default:
@@ -1101,40 +1025,40 @@ export default class DatalogParser extends antlr4.Parser {
 
 	set_term() {
 	    let localctx = new Set_termContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 38, DatalogParser.RULE_set_term);
+	    this.enterRule(localctx, 36, Datalog.RULE_set_term);
 	    try {
-	        this.state = 232;
+	        this.state = 211;
 	        this._errHandler.sync(this);
 	        switch(this._input.LA(1)) {
 	        case 6:
 	            localctx = new BooleanFactTermContext(this, localctx);
 	            this.enterOuterAlt(localctx, 1);
-	            this.state = 227;
-	            this.match(DatalogParser.BOOLEAN);
+	            this.state = 206;
+	            this.match(Datalog.BOOLEAN);
 	            break;
 	        case 2:
 	            localctx = new StringFactTermContext(this, localctx);
 	            this.enterOuterAlt(localctx, 2);
-	            this.state = 228;
-	            this.match(DatalogParser.STRING);
+	            this.state = 207;
+	            this.match(Datalog.STRING);
 	            break;
 	        case 3:
 	            localctx = new NumberFactTermContext(this, localctx);
 	            this.enterOuterAlt(localctx, 3);
-	            this.state = 229;
-	            this.match(DatalogParser.NUMBER);
+	            this.state = 208;
+	            this.match(Datalog.NUMBER);
 	            break;
 	        case 4:
 	            localctx = new BytesFactTermContext(this, localctx);
 	            this.enterOuterAlt(localctx, 4);
-	            this.state = 230;
-	            this.match(DatalogParser.BYTES);
+	            this.state = 209;
+	            this.match(Datalog.BYTES);
 	            break;
 	        case 7:
 	            localctx = new DateFactTermContext(this, localctx);
 	            this.enterOuterAlt(localctx, 5);
-	            this.state = 231;
-	            this.match(DatalogParser.DATE);
+	            this.state = 210;
+	            this.match(Datalog.DATE);
 	            break;
 	        default:
 	            throw new antlr4.error.NoViableAltException(this);
@@ -1156,72 +1080,70 @@ export default class DatalogParser extends antlr4.Parser {
 
 }
 
-DatalogParser.EOF = antlr4.Token.EOF;
-DatalogParser.VARIABLE = 1;
-DatalogParser.STRING = 2;
-DatalogParser.NUMBER = 3;
-DatalogParser.BYTES = 4;
-DatalogParser.PUBLICKEYBYTES = 5;
-DatalogParser.BOOLEAN = 6;
-DatalogParser.DATE = 7;
-DatalogParser.TRUSTING = 8;
-DatalogParser.COMMA = 9;
-DatalogParser.SEMICOL = 10;
-DatalogParser.LPARENS = 11;
-DatalogParser.RPARENS = 12;
-DatalogParser.LSPARENS = 13;
-DatalogParser.RSPARENS = 14;
-DatalogParser.AUTHORITY = 15;
-DatalogParser.PREVIOUS = 16;
-DatalogParser.ED25519 = 17;
-DatalogParser.RULEOP = 18;
-DatalogParser.OP_NOT = 19;
-DatalogParser.OP_MUL = 20;
-DatalogParser.OP_DIV = 21;
-DatalogParser.OP_SUM = 22;
-DatalogParser.OP_SUB = 23;
-DatalogParser.OP_AND = 24;
-DatalogParser.OP_OR = 25;
-DatalogParser.OP_G = 26;
-DatalogParser.OP_GE = 27;
-DatalogParser.OP_L = 28;
-DatalogParser.OP_LE = 29;
-DatalogParser.OP_EQUAL = 30;
-DatalogParser.CHECK = 31;
-DatalogParser.IF = 32;
-DatalogParser.ALL = 33;
-DatalogParser.OR = 34;
-DatalogParser.ALLOW = 35;
-DatalogParser.DENY = 36;
-DatalogParser.SINGLE_LINE_COMMENT = 37;
-DatalogParser.DELIMITED_COMMENT_START = 38;
-DatalogParser.DELIMITED_COMMENT_END = 39;
-DatalogParser.DELIMITED_COMMENT = 40;
-DatalogParser.METHOD_INVOCATION = 41;
-DatalogParser.NAME = 42;
-DatalogParser.WS = 43;
-DatalogParser.ANY = 44;
+Datalog.EOF = antlr4.Token.EOF;
+Datalog.VARIABLE = 1;
+Datalog.STRING = 2;
+Datalog.NUMBER = 3;
+Datalog.BYTES = 4;
+Datalog.PUBLICKEYBYTES = 5;
+Datalog.BOOLEAN = 6;
+Datalog.DATE = 7;
+Datalog.TRUSTING = 8;
+Datalog.COMMA = 9;
+Datalog.SEMICOL = 10;
+Datalog.LPARENS = 11;
+Datalog.RPARENS = 12;
+Datalog.LSPARENS = 13;
+Datalog.RSPARENS = 14;
+Datalog.AUTHORITY = 15;
+Datalog.PREVIOUS = 16;
+Datalog.ED25519 = 17;
+Datalog.RULEOP = 18;
+Datalog.OP_NOT = 19;
+Datalog.OP_MUL = 20;
+Datalog.OP_DIV = 21;
+Datalog.OP_SUM = 22;
+Datalog.OP_SUB = 23;
+Datalog.OP_AND = 24;
+Datalog.OP_OR = 25;
+Datalog.OP_G = 26;
+Datalog.OP_GE = 27;
+Datalog.OP_L = 28;
+Datalog.OP_LE = 29;
+Datalog.OP_EQUAL = 30;
+Datalog.CHECK = 31;
+Datalog.IF = 32;
+Datalog.ALL = 33;
+Datalog.OR = 34;
+Datalog.ALLOW = 35;
+Datalog.DENY = 36;
+Datalog.METHOD_INVOCATION = 37;
+Datalog.NAME = 38;
+Datalog.SINGLE_LINE_COMMENT = 39;
+Datalog.DELIMITED_COMMENT_START = 40;
+Datalog.DELIMITED_COMMENT_END = 41;
+Datalog.DELIMITED_COMMENT = 42;
+Datalog.ANY = 43;
 
-DatalogParser.RULE_authorizer = 0;
-DatalogParser.RULE_authorizer_element = 1;
-DatalogParser.RULE_origin_clause = 2;
-DatalogParser.RULE_origin_element = 3;
-DatalogParser.RULE_signature_alg = 4;
-DatalogParser.RULE_block = 5;
-DatalogParser.RULE_block_element = 6;
-DatalogParser.RULE_fact_or_rule = 7;
-DatalogParser.RULE_fact = 8;
-DatalogParser.RULE_rule_ = 9;
-DatalogParser.RULE_check = 10;
-DatalogParser.RULE_policy = 11;
-DatalogParser.RULE_rule_body = 12;
-DatalogParser.RULE_rule_body_element = 13;
-DatalogParser.RULE_predicate = 14;
-DatalogParser.RULE_expression = 15;
-DatalogParser.RULE_set = 16;
-DatalogParser.RULE_term = 17;
-DatalogParser.RULE_fact_term = 18;
-DatalogParser.RULE_set_term = 19;
+Datalog.RULE_authorizer = 0;
+Datalog.RULE_authorizer_element = 1;
+Datalog.RULE_origin_clause = 2;
+Datalog.RULE_origin_element = 3;
+Datalog.RULE_signature_alg = 4;
+Datalog.RULE_block = 5;
+Datalog.RULE_block_element = 6;
+Datalog.RULE_fact = 7;
+Datalog.RULE_rule_ = 8;
+Datalog.RULE_check = 9;
+Datalog.RULE_policy = 10;
+Datalog.RULE_rule_body = 11;
+Datalog.RULE_rule_body_element = 12;
+Datalog.RULE_predicate = 13;
+Datalog.RULE_expression = 14;
+Datalog.RULE_set = 15;
+Datalog.RULE_term = 16;
+Datalog.RULE_fact_term = 17;
+Datalog.RULE_set_term = 18;
 
 class AuthorizerContext extends antlr4.ParserRuleContext {
 
@@ -1234,11 +1156,11 @@ class AuthorizerContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = DatalogParser.RULE_authorizer;
+        this.ruleIndex = Datalog.RULE_authorizer;
     }
 
 	EOF() {
-	    return this.getToken(DatalogParser.EOF, 0);
+	    return this.getToken(Datalog.EOF, 0);
 	};
 
 	authorizer_element = function(i) {
@@ -1253,19 +1175,19 @@ class AuthorizerContext extends antlr4.ParserRuleContext {
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterAuthorizer(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitAuthorizer(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitAuthorizer(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -1288,39 +1210,31 @@ class Authorizer_elementContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = DatalogParser.RULE_authorizer_element;
+        this.ruleIndex = Datalog.RULE_authorizer_element;
     }
 
 	SEMICOL() {
-	    return this.getToken(DatalogParser.SEMICOL, 0);
+	    return this.getToken(Datalog.SEMICOL, 0);
 	};
 
-	fact_or_rule() {
-	    return this.getTypedRuleContext(Fact_or_ruleContext,0);
-	};
-
-	policy() {
-	    return this.getTypedRuleContext(PolicyContext,0);
-	};
-
-	check() {
-	    return this.getTypedRuleContext(CheckContext,0);
+	fact() {
+	    return this.getTypedRuleContext(FactContext,0);
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterAuthorizer_element(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitAuthorizer_element(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitAuthorizer_element(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -1343,11 +1257,11 @@ class Origin_clauseContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = DatalogParser.RULE_origin_clause;
+        this.ruleIndex = Datalog.RULE_origin_clause;
     }
 
 	TRUSTING() {
-	    return this.getToken(DatalogParser.TRUSTING, 0);
+	    return this.getToken(Datalog.TRUSTING, 0);
 	};
 
 	origin_element = function(i) {
@@ -1366,27 +1280,27 @@ class Origin_clauseContext extends antlr4.ParserRuleContext {
 			i = null;
 		}
 	    if(i===null) {
-	        return this.getTokens(DatalogParser.COMMA);
+	        return this.getTokens(Datalog.COMMA);
 	    } else {
-	        return this.getToken(DatalogParser.COMMA, i);
+	        return this.getToken(Datalog.COMMA, i);
 	    }
 	};
 
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterOrigin_clause(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitOrigin_clause(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitOrigin_clause(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -1409,7 +1323,7 @@ class Origin_elementContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = DatalogParser.RULE_origin_element;
+        this.ruleIndex = Datalog.RULE_origin_element;
     }
 
 
@@ -1429,23 +1343,23 @@ class OriginElementAuthorityContext extends Origin_elementContext {
     }
 
 	AUTHORITY() {
-	    return this.getToken(DatalogParser.AUTHORITY, 0);
+	    return this.getToken(Datalog.AUTHORITY, 0);
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterOriginElementAuthority(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitOriginElementAuthority(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitOriginElementAuthority(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -1455,7 +1369,7 @@ class OriginElementAuthorityContext extends Origin_elementContext {
 
 }
 
-DatalogParser.OriginElementAuthorityContext = OriginElementAuthorityContext;
+Datalog.OriginElementAuthorityContext = OriginElementAuthorityContext;
 
 class OriginElementPublicKeyContext extends Origin_elementContext {
 
@@ -1469,23 +1383,23 @@ class OriginElementPublicKeyContext extends Origin_elementContext {
 	};
 
 	PUBLICKEYBYTES() {
-	    return this.getToken(DatalogParser.PUBLICKEYBYTES, 0);
+	    return this.getToken(Datalog.PUBLICKEYBYTES, 0);
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterOriginElementPublicKey(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitOriginElementPublicKey(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitOriginElementPublicKey(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -1495,7 +1409,7 @@ class OriginElementPublicKeyContext extends Origin_elementContext {
 
 }
 
-DatalogParser.OriginElementPublicKeyContext = OriginElementPublicKeyContext;
+Datalog.OriginElementPublicKeyContext = OriginElementPublicKeyContext;
 
 class OriginElementPreviousContext extends Origin_elementContext {
 
@@ -1505,23 +1419,23 @@ class OriginElementPreviousContext extends Origin_elementContext {
     }
 
 	PREVIOUS() {
-	    return this.getToken(DatalogParser.PREVIOUS, 0);
+	    return this.getToken(Datalog.PREVIOUS, 0);
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterOriginElementPrevious(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitOriginElementPrevious(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitOriginElementPrevious(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -1531,7 +1445,7 @@ class OriginElementPreviousContext extends Origin_elementContext {
 
 }
 
-DatalogParser.OriginElementPreviousContext = OriginElementPreviousContext;
+Datalog.OriginElementPreviousContext = OriginElementPreviousContext;
 
 class Signature_algContext extends antlr4.ParserRuleContext {
 
@@ -1544,27 +1458,27 @@ class Signature_algContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = DatalogParser.RULE_signature_alg;
+        this.ruleIndex = Datalog.RULE_signature_alg;
     }
 
 	ED25519() {
-	    return this.getToken(DatalogParser.ED25519, 0);
+	    return this.getToken(Datalog.ED25519, 0);
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterSignature_alg(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitSignature_alg(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitSignature_alg(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -1587,7 +1501,7 @@ class BlockContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = DatalogParser.RULE_block;
+        this.ruleIndex = Datalog.RULE_block;
     }
 
 	block_element = function(i) {
@@ -1602,19 +1516,19 @@ class BlockContext extends antlr4.ParserRuleContext {
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterBlock(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitBlock(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitBlock(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -1637,11 +1551,11 @@ class Block_elementContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = DatalogParser.RULE_block_element;
+        this.ruleIndex = Datalog.RULE_block_element;
     }
 
 	SEMICOL() {
-	    return this.getToken(DatalogParser.SEMICOL, 0);
+	    return this.getToken(Datalog.SEMICOL, 0);
 	};
 
 	check() {
@@ -1652,107 +1566,25 @@ class Block_elementContext extends antlr4.ParserRuleContext {
 	    return this.getTypedRuleContext(FactContext,0);
 	};
 
-	fact_or_rule() {
-	    return this.getTypedRuleContext(Fact_or_ruleContext,0);
+	rule_() {
+	    return this.getTypedRuleContext(Rule_Context,0);
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterBlock_element(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitBlock_element(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitBlock_element(this);
-	    } else {
-	        return visitor.visitChildren(this);
-	    }
-	}
-
-
-}
-
-
-
-class Fact_or_ruleContext extends antlr4.ParserRuleContext {
-
-    constructor(parser, parent, invokingState) {
-        if(parent===undefined) {
-            parent = null;
-        }
-        if(invokingState===undefined || invokingState===null) {
-            invokingState = -1;
-        }
-        super(parent, invokingState);
-        this.parser = parser;
-        this.ruleIndex = DatalogParser.RULE_fact_or_rule;
-    }
-
-	NAME() {
-	    return this.getToken(DatalogParser.NAME, 0);
-	};
-
-	LPARENS() {
-	    return this.getToken(DatalogParser.LPARENS, 0);
-	};
-
-	term = function(i) {
-	    if(i===undefined) {
-	        i = null;
-	    }
-	    if(i===null) {
-	        return this.getTypedRuleContexts(TermContext);
-	    } else {
-	        return this.getTypedRuleContext(TermContext,i);
-	    }
-	};
-
-	RPARENS() {
-	    return this.getToken(DatalogParser.RPARENS, 0);
-	};
-
-	COMMA = function(i) {
-		if(i===undefined) {
-			i = null;
-		}
-	    if(i===null) {
-	        return this.getTokens(DatalogParser.COMMA);
-	    } else {
-	        return this.getToken(DatalogParser.COMMA, i);
-	    }
-	};
-
-
-	RULEOP() {
-	    return this.getToken(DatalogParser.RULEOP, 0);
-	};
-
-	rule_body() {
-	    return this.getTypedRuleContext(Rule_bodyContext,0);
-	};
-
-	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
-	        listener.enterFact_or_rule(this);
-		}
-	}
-
-	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
-	        listener.exitFact_or_rule(this);
-		}
-	}
-
-	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
-	        return visitor.visitFact_or_rule(this);
 	    } else {
 	        return visitor.visitChildren(this);
 	    }
@@ -1774,15 +1606,15 @@ class FactContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = DatalogParser.RULE_fact;
+        this.ruleIndex = Datalog.RULE_fact;
     }
 
 	NAME() {
-	    return this.getToken(DatalogParser.NAME, 0);
+	    return this.getToken(Datalog.NAME, 0);
 	};
 
-	LPARENS() {
-	    return this.getToken(DatalogParser.LPARENS, 0);
+	LSPARENS() {
+	    return this.getToken(Datalog.LSPARENS, 0);
 	};
 
 	fact_term = function(i) {
@@ -1796,8 +1628,8 @@ class FactContext extends antlr4.ParserRuleContext {
 	    }
 	};
 
-	RPARENS() {
-	    return this.getToken(DatalogParser.RPARENS, 0);
+	RSPARENS() {
+	    return this.getToken(Datalog.RSPARENS, 0);
 	};
 
 	COMMA = function(i) {
@@ -1805,27 +1637,27 @@ class FactContext extends antlr4.ParserRuleContext {
 			i = null;
 		}
 	    if(i===null) {
-	        return this.getTokens(DatalogParser.COMMA);
+	        return this.getTokens(Datalog.COMMA);
 	    } else {
-	        return this.getToken(DatalogParser.COMMA, i);
+	        return this.getToken(Datalog.COMMA, i);
 	    }
 	};
 
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterFact(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitFact(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitFact(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -1848,7 +1680,7 @@ class Rule_Context extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = DatalogParser.RULE_rule_;
+        this.ruleIndex = Datalog.RULE_rule_;
     }
 
 	predicate() {
@@ -1856,7 +1688,7 @@ class Rule_Context extends antlr4.ParserRuleContext {
 	};
 
 	RULEOP() {
-	    return this.getToken(DatalogParser.RULEOP, 0);
+	    return this.getToken(Datalog.RULEOP, 0);
 	};
 
 	rule_body() {
@@ -1864,19 +1696,19 @@ class Rule_Context extends antlr4.ParserRuleContext {
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterRule_(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitRule_(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitRule_(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -1899,12 +1731,12 @@ class CheckContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = DatalogParser.RULE_check;
+        this.ruleIndex = Datalog.RULE_check;
         this.kind = null;
     }
 
 	CHECK() {
-	    return this.getToken(DatalogParser.CHECK, 0);
+	    return this.getToken(Datalog.CHECK, 0);
 	};
 
 	rule_body = function(i) {
@@ -1919,11 +1751,11 @@ class CheckContext extends antlr4.ParserRuleContext {
 	};
 
 	IF() {
-	    return this.getToken(DatalogParser.IF, 0);
+	    return this.getToken(Datalog.IF, 0);
 	};
 
 	ALL() {
-	    return this.getToken(DatalogParser.ALL, 0);
+	    return this.getToken(Datalog.ALL, 0);
 	};
 
 	OR = function(i) {
@@ -1931,27 +1763,27 @@ class CheckContext extends antlr4.ParserRuleContext {
 			i = null;
 		}
 	    if(i===null) {
-	        return this.getTokens(DatalogParser.OR);
+	        return this.getTokens(Datalog.OR);
 	    } else {
-	        return this.getToken(DatalogParser.OR, i);
+	        return this.getToken(Datalog.OR, i);
 	    }
 	};
 
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterCheck(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitCheck(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitCheck(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -1974,12 +1806,12 @@ class PolicyContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = DatalogParser.RULE_policy;
+        this.ruleIndex = Datalog.RULE_policy;
         this.kind = null;
     }
 
 	IF() {
-	    return this.getToken(DatalogParser.IF, 0);
+	    return this.getToken(Datalog.IF, 0);
 	};
 
 	rule_body = function(i) {
@@ -1994,11 +1826,11 @@ class PolicyContext extends antlr4.ParserRuleContext {
 	};
 
 	ALLOW() {
-	    return this.getToken(DatalogParser.ALLOW, 0);
+	    return this.getToken(Datalog.ALLOW, 0);
 	};
 
 	DENY() {
-	    return this.getToken(DatalogParser.DENY, 0);
+	    return this.getToken(Datalog.DENY, 0);
 	};
 
 	OR = function(i) {
@@ -2006,27 +1838,27 @@ class PolicyContext extends antlr4.ParserRuleContext {
 			i = null;
 		}
 	    if(i===null) {
-	        return this.getTokens(DatalogParser.OR);
+	        return this.getTokens(Datalog.OR);
 	    } else {
-	        return this.getToken(DatalogParser.OR, i);
+	        return this.getToken(Datalog.OR, i);
 	    }
 	};
 
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterPolicy(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitPolicy(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitPolicy(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -2049,7 +1881,7 @@ class Rule_bodyContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = DatalogParser.RULE_rule_body;
+        this.ruleIndex = Datalog.RULE_rule_body;
     }
 
 	rule_body_element = function(i) {
@@ -2068,9 +1900,9 @@ class Rule_bodyContext extends antlr4.ParserRuleContext {
 			i = null;
 		}
 	    if(i===null) {
-	        return this.getTokens(DatalogParser.COMMA);
+	        return this.getTokens(Datalog.COMMA);
 	    } else {
-	        return this.getToken(DatalogParser.COMMA, i);
+	        return this.getToken(Datalog.COMMA, i);
 	    }
 	};
 
@@ -2080,19 +1912,19 @@ class Rule_bodyContext extends antlr4.ParserRuleContext {
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterRule_body(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitRule_body(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitRule_body(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -2115,7 +1947,7 @@ class Rule_body_elementContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = DatalogParser.RULE_rule_body_element;
+        this.ruleIndex = Datalog.RULE_rule_body_element;
     }
 
 	predicate() {
@@ -2127,19 +1959,19 @@ class Rule_body_elementContext extends antlr4.ParserRuleContext {
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterRule_body_element(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitRule_body_element(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitRule_body_element(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -2162,15 +1994,15 @@ class PredicateContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = DatalogParser.RULE_predicate;
+        this.ruleIndex = Datalog.RULE_predicate;
     }
 
 	NAME() {
-	    return this.getToken(DatalogParser.NAME, 0);
+	    return this.getToken(Datalog.NAME, 0);
 	};
 
 	LPARENS() {
-	    return this.getToken(DatalogParser.LPARENS, 0);
+	    return this.getToken(Datalog.LPARENS, 0);
 	};
 
 	term = function(i) {
@@ -2185,7 +2017,7 @@ class PredicateContext extends antlr4.ParserRuleContext {
 	};
 
 	RPARENS() {
-	    return this.getToken(DatalogParser.RPARENS, 0);
+	    return this.getToken(Datalog.RPARENS, 0);
 	};
 
 	COMMA = function(i) {
@@ -2193,27 +2025,27 @@ class PredicateContext extends antlr4.ParserRuleContext {
 			i = null;
 		}
 	    if(i===null) {
-	        return this.getTokens(DatalogParser.COMMA);
+	        return this.getTokens(Datalog.COMMA);
 	    } else {
-	        return this.getToken(DatalogParser.COMMA, i);
+	        return this.getToken(Datalog.COMMA, i);
 	    }
 	};
 
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterPredicate(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitPredicate(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitPredicate(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -2236,7 +2068,7 @@ class ExpressionContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = DatalogParser.RULE_expression;
+        this.ruleIndex = Datalog.RULE_expression;
     }
 
 
@@ -2268,27 +2100,27 @@ class ExpressionAddContext extends ExpressionContext {
 	};
 
 	OP_SUM() {
-	    return this.getToken(DatalogParser.OP_SUM, 0);
+	    return this.getToken(Datalog.OP_SUM, 0);
 	};
 
 	OP_SUB() {
-	    return this.getToken(DatalogParser.OP_SUB, 0);
+	    return this.getToken(Datalog.OP_SUB, 0);
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterExpressionAdd(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitExpressionAdd(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitExpressionAdd(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -2298,7 +2130,7 @@ class ExpressionAddContext extends ExpressionContext {
 
 }
 
-DatalogParser.ExpressionAddContext = ExpressionAddContext;
+Datalog.ExpressionAddContext = ExpressionAddContext;
 
 class ExpressionLogicContext extends ExpressionContext {
 
@@ -2320,27 +2152,27 @@ class ExpressionLogicContext extends ExpressionContext {
 	};
 
 	OP_OR() {
-	    return this.getToken(DatalogParser.OP_OR, 0);
+	    return this.getToken(Datalog.OP_OR, 0);
 	};
 
 	OP_AND() {
-	    return this.getToken(DatalogParser.OP_AND, 0);
+	    return this.getToken(Datalog.OP_AND, 0);
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterExpressionLogic(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitExpressionLogic(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitExpressionLogic(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -2350,7 +2182,7 @@ class ExpressionLogicContext extends ExpressionContext {
 
 }
 
-DatalogParser.ExpressionLogicContext = ExpressionLogicContext;
+Datalog.ExpressionLogicContext = ExpressionLogicContext;
 
 class ExpressionUnaryContext extends ExpressionContext {
 
@@ -2360,7 +2192,7 @@ class ExpressionUnaryContext extends ExpressionContext {
     }
 
 	OP_NOT() {
-	    return this.getToken(DatalogParser.OP_NOT, 0);
+	    return this.getToken(Datalog.OP_NOT, 0);
 	};
 
 	expression() {
@@ -2368,19 +2200,19 @@ class ExpressionUnaryContext extends ExpressionContext {
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterExpressionUnary(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitExpressionUnary(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitExpressionUnary(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -2390,7 +2222,7 @@ class ExpressionUnaryContext extends ExpressionContext {
 
 }
 
-DatalogParser.ExpressionUnaryContext = ExpressionUnaryContext;
+Datalog.ExpressionUnaryContext = ExpressionUnaryContext;
 
 class ExpressionParenthesesContext extends ExpressionContext {
 
@@ -2400,7 +2232,7 @@ class ExpressionParenthesesContext extends ExpressionContext {
     }
 
 	LPARENS() {
-	    return this.getToken(DatalogParser.LPARENS, 0);
+	    return this.getToken(Datalog.LPARENS, 0);
 	};
 
 	expression() {
@@ -2408,23 +2240,23 @@ class ExpressionParenthesesContext extends ExpressionContext {
 	};
 
 	RPARENS() {
-	    return this.getToken(DatalogParser.RPARENS, 0);
+	    return this.getToken(Datalog.RPARENS, 0);
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterExpressionParentheses(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitExpressionParentheses(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitExpressionParentheses(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -2434,7 +2266,7 @@ class ExpressionParenthesesContext extends ExpressionContext {
 
 }
 
-DatalogParser.ExpressionParenthesesContext = ExpressionParenthesesContext;
+Datalog.ExpressionParenthesesContext = ExpressionParenthesesContext;
 
 class ExpressionCompContext extends ExpressionContext {
 
@@ -2456,39 +2288,39 @@ class ExpressionCompContext extends ExpressionContext {
 	};
 
 	OP_GE() {
-	    return this.getToken(DatalogParser.OP_GE, 0);
+	    return this.getToken(Datalog.OP_GE, 0);
 	};
 
 	OP_LE() {
-	    return this.getToken(DatalogParser.OP_LE, 0);
+	    return this.getToken(Datalog.OP_LE, 0);
 	};
 
 	OP_G() {
-	    return this.getToken(DatalogParser.OP_G, 0);
+	    return this.getToken(Datalog.OP_G, 0);
 	};
 
 	OP_L() {
-	    return this.getToken(DatalogParser.OP_L, 0);
+	    return this.getToken(Datalog.OP_L, 0);
 	};
 
 	OP_EQUAL() {
-	    return this.getToken(DatalogParser.OP_EQUAL, 0);
+	    return this.getToken(Datalog.OP_EQUAL, 0);
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterExpressionComp(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitExpressionComp(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitExpressionComp(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -2498,7 +2330,7 @@ class ExpressionCompContext extends ExpressionContext {
 
 }
 
-DatalogParser.ExpressionCompContext = ExpressionCompContext;
+Datalog.ExpressionCompContext = ExpressionCompContext;
 
 class ExpressionMethodContext extends ExpressionContext {
 
@@ -2512,15 +2344,15 @@ class ExpressionMethodContext extends ExpressionContext {
 	};
 
 	METHOD_INVOCATION() {
-	    return this.getToken(DatalogParser.METHOD_INVOCATION, 0);
+	    return this.getToken(Datalog.METHOD_INVOCATION, 0);
 	};
 
 	LPARENS() {
-	    return this.getToken(DatalogParser.LPARENS, 0);
+	    return this.getToken(Datalog.LPARENS, 0);
 	};
 
 	RPARENS() {
-	    return this.getToken(DatalogParser.RPARENS, 0);
+	    return this.getToken(Datalog.RPARENS, 0);
 	};
 
 	term = function(i) {
@@ -2539,27 +2371,27 @@ class ExpressionMethodContext extends ExpressionContext {
 			i = null;
 		}
 	    if(i===null) {
-	        return this.getTokens(DatalogParser.COMMA);
+	        return this.getTokens(Datalog.COMMA);
 	    } else {
-	        return this.getToken(DatalogParser.COMMA, i);
+	        return this.getToken(Datalog.COMMA, i);
 	    }
 	};
 
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterExpressionMethod(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitExpressionMethod(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitExpressionMethod(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -2569,7 +2401,7 @@ class ExpressionMethodContext extends ExpressionContext {
 
 }
 
-DatalogParser.ExpressionMethodContext = ExpressionMethodContext;
+Datalog.ExpressionMethodContext = ExpressionMethodContext;
 
 class ExpressionTermContext extends ExpressionContext {
 
@@ -2583,19 +2415,19 @@ class ExpressionTermContext extends ExpressionContext {
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterExpressionTerm(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitExpressionTerm(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitExpressionTerm(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -2605,7 +2437,7 @@ class ExpressionTermContext extends ExpressionContext {
 
 }
 
-DatalogParser.ExpressionTermContext = ExpressionTermContext;
+Datalog.ExpressionTermContext = ExpressionTermContext;
 
 class ExpressionMultContext extends ExpressionContext {
 
@@ -2627,27 +2459,27 @@ class ExpressionMultContext extends ExpressionContext {
 	};
 
 	OP_MUL() {
-	    return this.getToken(DatalogParser.OP_MUL, 0);
+	    return this.getToken(Datalog.OP_MUL, 0);
 	};
 
 	OP_DIV() {
-	    return this.getToken(DatalogParser.OP_DIV, 0);
+	    return this.getToken(Datalog.OP_DIV, 0);
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterExpressionMult(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitExpressionMult(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitExpressionMult(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -2657,7 +2489,7 @@ class ExpressionMultContext extends ExpressionContext {
 
 }
 
-DatalogParser.ExpressionMultContext = ExpressionMultContext;
+Datalog.ExpressionMultContext = ExpressionMultContext;
 
 class ExpressionVariableContext extends ExpressionContext {
 
@@ -2667,23 +2499,23 @@ class ExpressionVariableContext extends ExpressionContext {
     }
 
 	VARIABLE() {
-	    return this.getToken(DatalogParser.VARIABLE, 0);
+	    return this.getToken(Datalog.VARIABLE, 0);
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterExpressionVariable(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitExpressionVariable(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitExpressionVariable(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -2693,7 +2525,7 @@ class ExpressionVariableContext extends ExpressionContext {
 
 }
 
-DatalogParser.ExpressionVariableContext = ExpressionVariableContext;
+Datalog.ExpressionVariableContext = ExpressionVariableContext;
 
 class SetContext extends antlr4.ParserRuleContext {
 
@@ -2706,15 +2538,15 @@ class SetContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = DatalogParser.RULE_set;
+        this.ruleIndex = Datalog.RULE_set;
     }
 
 	LSPARENS() {
-	    return this.getToken(DatalogParser.LSPARENS, 0);
+	    return this.getToken(Datalog.LSPARENS, 0);
 	};
 
 	RSPARENS() {
-	    return this.getToken(DatalogParser.RSPARENS, 0);
+	    return this.getToken(Datalog.RSPARENS, 0);
 	};
 
 	fact_term() {
@@ -2726,9 +2558,9 @@ class SetContext extends antlr4.ParserRuleContext {
 			i = null;
 		}
 	    if(i===null) {
-	        return this.getTokens(DatalogParser.COMMA);
+	        return this.getTokens(Datalog.COMMA);
 	    } else {
-	        return this.getToken(DatalogParser.COMMA, i);
+	        return this.getToken(Datalog.COMMA, i);
 	    }
 	};
 
@@ -2745,19 +2577,19 @@ class SetContext extends antlr4.ParserRuleContext {
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterSet(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitSet(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitSet(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -2780,7 +2612,7 @@ class TermContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = DatalogParser.RULE_term;
+        this.ruleIndex = Datalog.RULE_term;
     }
 
 	fact_term() {
@@ -2788,23 +2620,23 @@ class TermContext extends antlr4.ParserRuleContext {
 	};
 
 	VARIABLE() {
-	    return this.getToken(DatalogParser.VARIABLE, 0);
+	    return this.getToken(Datalog.VARIABLE, 0);
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterTerm(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitTerm(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitTerm(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -2827,7 +2659,7 @@ class Fact_termContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = DatalogParser.RULE_fact_term;
+        this.ruleIndex = Datalog.RULE_fact_term;
     }
 
 
@@ -2851,19 +2683,19 @@ class SetFactTermContext extends Fact_termContext {
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterSetFactTerm(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitSetFactTerm(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitSetFactTerm(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -2873,7 +2705,7 @@ class SetFactTermContext extends Fact_termContext {
 
 }
 
-DatalogParser.SetFactTermContext = SetFactTermContext;
+Datalog.SetFactTermContext = SetFactTermContext;
 
 class SetTermContext extends Fact_termContext {
 
@@ -2887,19 +2719,19 @@ class SetTermContext extends Fact_termContext {
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterSetTerm(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitSetTerm(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitSetTerm(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -2909,7 +2741,7 @@ class SetTermContext extends Fact_termContext {
 
 }
 
-DatalogParser.SetTermContext = SetTermContext;
+Datalog.SetTermContext = SetTermContext;
 
 class Set_termContext extends antlr4.ParserRuleContext {
 
@@ -2922,7 +2754,7 @@ class Set_termContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = DatalogParser.RULE_set_term;
+        this.ruleIndex = Datalog.RULE_set_term;
     }
 
 
@@ -2942,23 +2774,23 @@ class StringFactTermContext extends Set_termContext {
     }
 
 	STRING() {
-	    return this.getToken(DatalogParser.STRING, 0);
+	    return this.getToken(Datalog.STRING, 0);
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterStringFactTerm(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitStringFactTerm(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitStringFactTerm(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -2968,7 +2800,7 @@ class StringFactTermContext extends Set_termContext {
 
 }
 
-DatalogParser.StringFactTermContext = StringFactTermContext;
+Datalog.StringFactTermContext = StringFactTermContext;
 
 class BytesFactTermContext extends Set_termContext {
 
@@ -2978,23 +2810,23 @@ class BytesFactTermContext extends Set_termContext {
     }
 
 	BYTES() {
-	    return this.getToken(DatalogParser.BYTES, 0);
+	    return this.getToken(Datalog.BYTES, 0);
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterBytesFactTerm(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitBytesFactTerm(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitBytesFactTerm(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -3004,7 +2836,7 @@ class BytesFactTermContext extends Set_termContext {
 
 }
 
-DatalogParser.BytesFactTermContext = BytesFactTermContext;
+Datalog.BytesFactTermContext = BytesFactTermContext;
 
 class BooleanFactTermContext extends Set_termContext {
 
@@ -3014,23 +2846,23 @@ class BooleanFactTermContext extends Set_termContext {
     }
 
 	BOOLEAN() {
-	    return this.getToken(DatalogParser.BOOLEAN, 0);
+	    return this.getToken(Datalog.BOOLEAN, 0);
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterBooleanFactTerm(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitBooleanFactTerm(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitBooleanFactTerm(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -3040,7 +2872,7 @@ class BooleanFactTermContext extends Set_termContext {
 
 }
 
-DatalogParser.BooleanFactTermContext = BooleanFactTermContext;
+Datalog.BooleanFactTermContext = BooleanFactTermContext;
 
 class DateFactTermContext extends Set_termContext {
 
@@ -3050,23 +2882,23 @@ class DateFactTermContext extends Set_termContext {
     }
 
 	DATE() {
-	    return this.getToken(DatalogParser.DATE, 0);
+	    return this.getToken(Datalog.DATE, 0);
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterDateFactTerm(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitDateFactTerm(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitDateFactTerm(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -3076,7 +2908,7 @@ class DateFactTermContext extends Set_termContext {
 
 }
 
-DatalogParser.DateFactTermContext = DateFactTermContext;
+Datalog.DateFactTermContext = DateFactTermContext;
 
 class NumberFactTermContext extends Set_termContext {
 
@@ -3086,23 +2918,23 @@ class NumberFactTermContext extends Set_termContext {
     }
 
 	NUMBER() {
-	    return this.getToken(DatalogParser.NUMBER, 0);
+	    return this.getToken(Datalog.NUMBER, 0);
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.enterNumberFactTerm(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof DatalogParserListener ) {
+	    if(listener instanceof DatalogListener ) {
 	        listener.exitNumberFactTerm(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof DatalogParserVisitor ) {
+	    if ( visitor instanceof DatalogVisitor ) {
 	        return visitor.visitNumberFactTerm(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -3112,26 +2944,25 @@ class NumberFactTermContext extends Set_termContext {
 
 }
 
-DatalogParser.NumberFactTermContext = NumberFactTermContext;
+Datalog.NumberFactTermContext = NumberFactTermContext;
 
 
-DatalogParser.AuthorizerContext = AuthorizerContext; 
-DatalogParser.Authorizer_elementContext = Authorizer_elementContext; 
-DatalogParser.Origin_clauseContext = Origin_clauseContext; 
-DatalogParser.Origin_elementContext = Origin_elementContext; 
-DatalogParser.Signature_algContext = Signature_algContext; 
-DatalogParser.BlockContext = BlockContext; 
-DatalogParser.Block_elementContext = Block_elementContext; 
-DatalogParser.Fact_or_ruleContext = Fact_or_ruleContext; 
-DatalogParser.FactContext = FactContext; 
-DatalogParser.Rule_Context = Rule_Context; 
-DatalogParser.CheckContext = CheckContext; 
-DatalogParser.PolicyContext = PolicyContext; 
-DatalogParser.Rule_bodyContext = Rule_bodyContext; 
-DatalogParser.Rule_body_elementContext = Rule_body_elementContext; 
-DatalogParser.PredicateContext = PredicateContext; 
-DatalogParser.ExpressionContext = ExpressionContext; 
-DatalogParser.SetContext = SetContext; 
-DatalogParser.TermContext = TermContext; 
-DatalogParser.Fact_termContext = Fact_termContext; 
-DatalogParser.Set_termContext = Set_termContext; 
+Datalog.AuthorizerContext = AuthorizerContext; 
+Datalog.Authorizer_elementContext = Authorizer_elementContext; 
+Datalog.Origin_clauseContext = Origin_clauseContext; 
+Datalog.Origin_elementContext = Origin_elementContext; 
+Datalog.Signature_algContext = Signature_algContext; 
+Datalog.BlockContext = BlockContext; 
+Datalog.Block_elementContext = Block_elementContext; 
+Datalog.FactContext = FactContext; 
+Datalog.Rule_Context = Rule_Context; 
+Datalog.CheckContext = CheckContext; 
+Datalog.PolicyContext = PolicyContext; 
+Datalog.Rule_bodyContext = Rule_bodyContext; 
+Datalog.Rule_body_elementContext = Rule_body_elementContext; 
+Datalog.PredicateContext = PredicateContext; 
+Datalog.ExpressionContext = ExpressionContext; 
+Datalog.SetContext = SetContext; 
+Datalog.TermContext = TermContext; 
+Datalog.Fact_termContext = Fact_termContext; 
+Datalog.Set_termContext = Set_termContext; 

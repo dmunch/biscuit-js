@@ -40,3 +40,4 @@ build/**/*
 
 # ignore yarn.lock
 yarn.lock
+monaco/src/gen_java

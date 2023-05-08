@@ -1,8 +1,10 @@
-import {languages} from "monaco-editor";
+import { CharStream, Token, ErrorListener, RecognitionException }  from 'antlr4';
+import { languages } from "monaco-editor";
+
+import DatalogLexer from "./gen/DatalogLexer.js";
+
 import TokensProvider = languages.TokensProvider;
 import IState = languages.IState;
-import { CharStream, Token, ErrorListener, RecognitionException }  from 'antlr4';
-import DatalogLexer from "./gen/DatalogLexer.js";
 import IToken = languages.IToken;
 
 class DatalogGrammarState implements IState {
@@ -47,7 +49,7 @@ class ErrorCollectorListener extends ErrorListener<number> {
 
 
 export class DatalogTokensProvider implements TokensProvider {
-    keywords = new Set(['deny', 'allow', 'if', 'all', 'check', 'trusting', 'previous', 'authority', 'ed25519', 'or', 'and']);
+    keywords = new Set(['DENY', 'ALLOW', 'IF', 'ALL', 'CHECK', 'TRUSTING', 'PREVIOUS', 'AUTHORITY', 'ED25519', 'OR', 'AND']);
     constants = new Set(['STRING', 'NUMBER', 'BYTES', 'PUBLICKEYBYTES', 'BOOLEAN', 'DATE']);
     
     getInitialState(): languages.IState {
@@ -73,26 +75,23 @@ export class DatalogTokensProvider implements TokensProvider {
             }
             let tokenTypeName = DatalogLexer.symbolicNames[token.type];
                     
-            if(tokenTypeName == "DELIMITED_COMMENT_START")
-            {                
+            if(tokenTypeName == "DELIMITED_COMMENT_START"){                
                 newState.isComment = true;
             }
-            if(tokenTypeName == "DELIMITED_COMMENT_END")
-            {
+
+            if(tokenTypeName == "DELIMITED_COMMENT_END") {
                 newState.isComment = false;
                 tokens.push(new DatalogToken("comment", token.start));
                 continue;
             }
             
-            if(newState.isComment)
-            {
+            if(newState.isComment) {
                 tokens.push(new DatalogToken("comment", token.start));
                 continue;
             }
             
-            if(tokenTypeName == null)
-            {
-                if(this.keywords.has(token.text)) {
+            if(tokenTypeName != null) {
+                if(this.keywords.has(tokenTypeName)) {
                     tokens.push(new DatalogToken("keyword", token.start));
                     continue;
                 }

@@ -6,7 +6,12 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/demo/index.ts',
+  //entry: './src/demo/index.ts',
+  
+  entry: {
+    app: './src/demo/index.ts',
+    "datalogWorker": './src/datalog.worker.ts'
+  },
   module: {
     rules: [
       {
@@ -87,8 +92,15 @@ module.exports = {
     },
     fallback: { crypto: false }
   },
-  output: {
-    filename: 'bundle.js',
+  output: {    
+    filename: (chunkData) => {
+      switch (chunkData.chunk.name) {
+          case 'datalogWorker':
+              return "datalogWorker.js"
+          default:
+              return 'bundle.js';
+      }
+    },
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: {

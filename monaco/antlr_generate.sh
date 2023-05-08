@@ -1,1 +1,1 @@
-antlr -Dlanguage=JavaScript Datalog.g4 -visitor -o src/gen
+antlr -Dlanguage=JavaScript DatalogParser.g4 DatalogLexer.g4 -visitor -o src/gen

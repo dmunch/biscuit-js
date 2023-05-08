@@ -1,6 +1,6 @@
 {
   "name": "@dmunch/biscuit-monaco",
-  "version": "0.2.0",
+  "version": "0.3.3",
   "description": "",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -10,9 +10,26 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production",
+    "build": "npx tsc",    
     "start:dev": "webpack-dev-server",
-    "deploy": "aws s3 sync dist/ s3://assets.munch.engineering/biscuit"
+    "build-demo": "webpack --mode production",
+    "deploy-demo": "aws s3 sync dist/ s3://assets.munch.engineering/biscuit",
+    "antlr-build": "./antlr_generate.sh",
+    "antlr-grun": "./antlr_grun.sh",
+    "watch": "npm-watch"
+  },
+  "watch": {
+    "antlr-build": {
+      "patterns": "./",
+      "extensions": "g4"
+    },
+    "antlr-grun": {
+      "patterns": "./",
+      "extensions": [
+        "g4",
+        "bcdl"
+      ]
+    }
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +39,7 @@
     "css-loader": "^3.6.0",
     "file-loader": "^6.0.0",
     "monaco-editor-webpack-plugin": "^7.0.1",
+    "npm-watch": "^0.11.0",
     "style-loader": "^1.2.1",
     "terser-webpack-plugin": "^5.3.7",
     "ts-loader": "^9.4.2",

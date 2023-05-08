@@ -1,0 +1,26 @@
+// this is a test biscuit datalog file, for quick manual validation of the parser grammar
+// see 
+// we receive a request to read "admin.doc"
+// The request contains a token with the following content
+use(123, ) <- 
+ffa("\"");
+
+// this restricts the kind of operation to "read"
+check if operation("read");
+
+// The authorizer loads facts representing the request
+resource("admin.doc");
+operation("read");
+
+// The authorizer loads the user's rights
+right(1234, "admin.doc", "read");
+right(1234, "admin.doc", "write");
+
+// Finally, the authorizer tests policies
+// by looking for a set of facts matching them
+allow if
+user($user_id),
+resource($res),
+operation($op),
+right($user_id, $res, $op);
+            
